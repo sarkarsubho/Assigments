@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "id": 1,
+      "url": "json-server",
+      "sorturl": "typicode"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=JQDHz72OA3c",
+      "sorturl": "http://localhost:8080/links/d83faf86",
+      "id": 2
+    },
+    {
+      "url": "https://course.masaischool.com/assignments/14833/problem/25651",
+      "sorturl": "http://localhost:8080/links/e89952f4",
+      "id": 3
+    },
+    {
+      "url": "sdsds",
+      "sorturl": "http://localhost:8080/links/118ad5cf",
+      "id": 4
+    }
+  ]
+}

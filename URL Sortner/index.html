@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hello india</h1>
+    <button id="getid">Get ID</button>
+
+    <form id="form">
+      <h3>Enter URL</h3>
+      <input type="text" id="url" />
+      <h3>Sorter URL</h3>
+
+      <h4 id="sorturl"></h4>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+  <script type="module">
+    import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+
+
+    let unqueId = () => {
+      return uuidv4().split("-")[0];
+    };
+    document.getElementById("form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log(e)
+      let url = document.getElementById("url").value;
+      let sortlink = `http://localhost:8080/links/${unqueId()}`;
+      // console.log(url,unqueId())
+      let data = {
+        url: url,
+        sorturl: sortlink,
+      };
+       let p=postdata(data);
+       console.log(p)
+    });
+    
+
+    var postdata = async(data)=>{
+         return   await fetch("http://localhost:8080/links", {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+      }).then((data)=>{console.log(data)});
+    }
+
+  </script>
+</html>
